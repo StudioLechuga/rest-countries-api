@@ -7,15 +7,17 @@ interface ICountry {
 }
 
 interface IInput {
-  value: string
-  onChange: (value:string) => void
+  value: string;
+  onChange: (value: string) => void;
+  onClean: () => void;
 }
 
-interface IApp{
-    app:IState
+interface IApp {
+  app: IState;
 }
-interface IState{
-    darkMode: boolean;
-    select: string;
-    contries: ICountry[];
+interface IState {
+  darkMode: boolean;
+  select: string;
+  contries: ICountry[];
+  filteredCountries: ICountry[];
 }

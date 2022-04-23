@@ -1,4 +1,4 @@
-.country-list-container{
+.country-list-container {
   display: grid;
   background-color: var(--PageBackgound);
   width: 100%;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (min-width: 600px) {
-  .country-list-container{
+  .country-list-container {
     padding-top: 2rem;
     column-gap: 4rem;
   }

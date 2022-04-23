@@ -1,8 +1,9 @@
-@import './components/Card/Card.css';
-@import  './components/CountryList/CountryList.css';
-@import './components/Header/Header.css';
-@import './components/Input/Input.css';
-@import './components/Select/Select.css';
+@import "./components/Card/Card.css";
+@import "./components/CountryList/CountryList.css";
+@import "./components/Header/Header.css";
+@import "./components/Input/Input.css";
+@import "./components/Select/Select.css";
+@import "./components/Layout/Layout.css";
 
 :root {
   --Text: hsl(200, 15%, 8%);
@@ -11,7 +12,7 @@
   --Shadow: -1px 1px 20px var(--shadowColor);
   --Radius: 8px;
   --HeaderHeight: 4rem;
-  --transition: .5s;
+  --transition: 0.5s;
 }
 
 .is-dark-mode {
@@ -49,25 +50,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.wrapper{
+.wrapper {
   transition-duration: var(--transition);
   background-color: var(--PageBackgound);
   padding: 1rem;
   min-height: calc(100vh - var(--HeaderHeight));
 }
-.flex{
+.flex {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
-.margin-bottom{
+.margin-bottom {
   margin-bottom: 1rem;
 }
-.half-margin-bottom{
-  margin-bottom: .5rem;
+.half-margin-bottom {
+  margin-bottom: 0.5rem;
 }

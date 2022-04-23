@@ -10,32 +10,34 @@
   align-items: center;
   justify-content: space-between;
 }
-.select-title:hover{
+
+.select-title:hover {
   box-shadow: -1px 1px 20px var(--ShadowHover);
 }
-.options{
+
+.options {
   position: absolute;
   z-index: 1;
-  padding-top: .5rem;
-  top: 14.5rem;
+  padding-top: 0.5rem;
+  top: 14rem;
   background-color: var(--Background);
   width: 10rem;
   border-radius: var(--Radius);
 }
-.option{
+.option {
   padding-left: 1rem;
   width: 100%;
   cursor: pointer;
   transition-duration: var(--transition);
 }
-.option:hover{
+.option:hover {
   letter-spacing: 2px;
 }
-.option:active{
+.option:active {
   background-color: rgba(136, 136, 136, 0.562);
 }
-@media screen and (min-width: 672px){
-  .options{
-    top: 10rem;
+@media screen and (min-width: 672px) {
+  .options {
+    top: 9rem;
   }
 }

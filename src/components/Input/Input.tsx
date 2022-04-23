@@ -1,8 +1,5 @@
-import React from 'react'
-
-const Input = (props:IInput): JSX.Element => {
+const Input = (props: IInput): JSX.Element => {
   return (
-    <div className="inputContainer">
     <div className="inputStuffContainer">
       <button>
         <i className="fas fa-search"></i>
@@ -13,9 +10,13 @@ const Input = (props:IInput): JSX.Element => {
         onChange={(e) => props.onChange(e.target.value)}
         placeholder={"Search your country"}
       />
+      {props.value.length > 0 && (
+        <button onClick={props.onClean} className="inputCleaner">
+          x
+        </button>
+      )}
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;
