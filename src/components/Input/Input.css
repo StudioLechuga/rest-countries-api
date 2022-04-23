@@ -1,22 +1,20 @@
-.inputContainer {
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  max-width: 92%;
-  margin-bottom: 1em;
-  box-sizing: border-box;
-}
 .inputStuffContainer {
   background-color: var(--Background);
   width: 90%;
   transition-duration: var(--transition);
   max-width: 400px;
-  padding: 1em;
+  padding: 1em 0.5rem 1rem 1rem;
+  display: flex;
   box-shadow: var(--Shadow);
   border-radius: var(--Radius);
+}
+
+.inputCleaner {
+  width: 30px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition-duration: 0.5s;
 }
 
 button {
@@ -36,7 +34,7 @@ input {
 }
 
 @media screen and (min-width: 600px) {
-  .inputContainer{
+  .inputContainer {
     justify-content: space-between;
     padding: 0 3rem;
   }

@@ -1,6 +1,5 @@
 import { responseCountriesDTO } from "./DTO/responseCountriesDTO";
 import { rootServices } from "./rootService";
-import { setContries } from "./slice/appSlice";
 
 const countriesServices = rootServices.injectEndpoints({
   endpoints: (builder) => ({
@@ -22,7 +21,7 @@ const countriesServices = rootServices.injectEndpoints({
         return res.map((country: ICountry) => responseCountriesDTO(country));
       },
     }),
-    getContriesByName: builder.query<ICountry[], string>({
+    getContryByName: builder.query<ICountry[], string>({
       query: (name: string) => ({
         url: `/name/${name}`,
         method: "GET",
@@ -37,6 +36,6 @@ const countriesServices = rootServices.injectEndpoints({
 
 export const {
   useGetAllCountriesQuery,
-  useGetContriesByNameQuery,
+  useGetContryByNameQuery,
   useGetContriesByRegionQuery,
 } = countriesServices;
