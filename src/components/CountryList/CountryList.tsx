@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetAllCountriesQuery } from "../../store/services/countriesService";
 import { setContries } from "../../store/services/slice/appSlice";
@@ -18,9 +19,9 @@ const CountryList = (): JSX.Element => {
     <div className="country-list-container">
       {!isLoading && !app.filteredCountries.length
         ? app.contries?.map((item: ICountry) => (
-            // <Link key={item.name} to={`/country/${item.alpha2Code.toLowerCase()}`}>
-            <Card key={item.name} {...item} />
-            // </Link>
+            <Link key={item.name} to={`/country/${item.name}`}>
+              <Card key={item.name} {...item} />
+            </Link>
           ))
         : app.filteredCountries?.map((item: ICountry) => (
             // <Link key={item.name} to={`/country/${item.alpha2Code.toLowerCase()}`}>

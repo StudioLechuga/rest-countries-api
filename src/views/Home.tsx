@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilteredCountries } from "../../store/services/slice/appSlice";
-import Header from "../Header/Header";
-import Input from "../Input/Input";
-import Select from "../Select/Select";
+import Input from "../components/Input/Input";
+import Select from "../components/Select/Select";
+import { setFilteredCountries } from "../store/services/slice/appSlice";
+import CountryList from "../components/CountryList/CountryList";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const state = useSelector((state: IApp) => state.app);
+const Home = (): JSX.Element => {
   const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch();
+  const state = useSelector((state: IApp) => state.app);
 
   const handleOnChange = (value: string): void => {
     setInputValue(value);
@@ -28,10 +28,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     setInputValue("");
     dispatch(setFilteredCountries([]));
   };
-  const mainClass = state.darkMode ? "is-dark-mode" : "is-light-mode";
+
   return (
-    <div className={mainClass}>
-      <Header />
+    <>
       <div className="controls">
         <Input
           value={inputValue}
@@ -40,9 +39,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         />
         <Select />
       </div>
-      {children}
-    </div>
+      <CountryList />
+    </>
   );
 };
 
-export default Layout;
+export default Home;
