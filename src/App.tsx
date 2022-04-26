@@ -1,20 +1,14 @@
-import { useId, useState } from "react";
+import Router from "./router";
 import { useSelector } from "react-redux";
-import Card from "./components/Card/Card";
-import CountryList from "./components/CountryList/CountryList";
-import Layout from "./components/Layout/Layout";
-import './index.css'
+import "./index.css";
 
-function App() {
- 
-  const id = useId();
+function App(): JSX.Element {
+  const state = useSelector((state: IApp) => state.app);
+  const mainClass = state.darkMode ? "is-dark-mode" : "is-light-mode";
   return (
-
-    <Layout>
-      <CountryList />
-    </Layout>
-      
-   
+    <div className={mainClass}>
+      <Router />
+    </div>
   );
 }
 
