@@ -1,4 +1,5 @@
 import { responseCountriesDTO } from "./DTO/responseCountriesDTO";
+import { responseSingleCountryDTO } from "./DTO/responseSingleCountryDTO";
 import { rootServices } from "./rootService";
 
 const countriesServices = rootServices.injectEndpoints({
@@ -21,14 +22,16 @@ const countriesServices = rootServices.injectEndpoints({
         return res.map((country: ICountry) => responseCountriesDTO(country));
       },
     }),
-    getContryByName: builder.query<ICountry[], string>({
+    getContryByName: builder.query<ICountry, string>({
       query: (name: string) => ({
         url: `/name/${name}`,
         method: "GET",
         success: (res: any) => {},
       }),
-      transformResponse: (res: ICountry[]) => {
-        return res.map((country: ICountry) => responseCountriesDTO(country));
+      transformResponse: (res: ICountry[]): ICountry => {
+        console.log(res)
+        const dataDTO = res.map((country: ICountry) => responseSingleCountryDTO(country));
+        return dataDTO[0]
       },
     }),
   }),
