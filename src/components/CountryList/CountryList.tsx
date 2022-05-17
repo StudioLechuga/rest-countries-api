@@ -6,7 +6,7 @@ import { setContries } from "../../store/services/slice/appSlice";
 import Card from "../Card/Card";
 
 const CountryList = (): JSX.Element => {
-  const { data, isLoading, error } = useGetAllCountriesQuery();
+  const { data, isLoading } = useGetAllCountriesQuery();
   const dispatch = useDispatch();
   useEffect(() => {
     if (data) {

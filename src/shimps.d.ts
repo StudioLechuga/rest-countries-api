@@ -6,6 +6,10 @@ interface ICountry {
   capital: string;
 }
 
+interface ISingleCountry extends ICountry {
+  nativeName: string;
+}
+
 interface IInput {
   value: string;
   onChange: (value: string) => void;

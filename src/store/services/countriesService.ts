@@ -7,38 +7,34 @@ const countriesServices = rootServices.injectEndpoints({
     getAllCountries: builder.query<ICountry[], void>({
       query: () => ({
         url: "/all",
-        method: "GET",
+        method: "GET"
       }),
       transformResponse: (res: ICountry[]) => {
         return res.map((country: ICountry) => responseCountriesDTO(country));
-      },
+      }
     }),
     getContriesByRegion: builder.query<ICountry[], string>({
       query: (region: string) => ({
         url: `/region/${region}`,
-        method: "GET",
+        method: "GET"
       }),
       transformResponse: (res: ICountry[]) => {
         return res.map((country: ICountry) => responseCountriesDTO(country));
-      },
+      }
     }),
-    getContryByName: builder.query<ICountry, string>({
+    getContryByName: builder.query<ISingleCountry, string>({
       query: (name: string) => ({
         url: `/name/${name}`,
         method: "GET",
-        success: (res: any) => {},
+        success: (res: any) => {}
       }),
-      transformResponse: (res: ICountry[]): ICountry => {
-        console.log(res)
+      transformResponse: (res: ICountry[]): ISingleCountry => {
         const dataDTO = res.map((country: ICountry) => responseSingleCountryDTO(country));
-        return dataDTO[0]
-      },
-    }),
-  }),
+        return dataDTO[0];
+      }
+    })
+  })
 });
 
-export const {
-  useGetAllCountriesQuery,
-  useGetContryByNameQuery,
-  useGetContriesByRegionQuery,
-} = countriesServices;
+export const { useGetAllCountriesQuery, useGetContryByNameQuery, useGetContriesByRegionQuery } =
+  countriesServices;
